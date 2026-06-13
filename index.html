@@ -23,7 +23,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
   body{background:#0D1B3E;align-items:center;justify-content:flex-start}
   body::before{content:'';position:fixed;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at 30% 20%,rgba(61,190,94,.12) 0%,transparent 60%),radial-gradient(ellipse at 70% 80%,rgba(13,27,62,.3) 0%,transparent 60%);z-index:0;pointer-events:none}
   .screen,.bottom-nav,#onboarding,#levelUpOverlay,.modal-bg,.profile-menu{max-width:480px;width:100%;position:relative;z-index:1}
-  .bottom-nav{left:50%;transform:translateX(-50%)}
 }
 /* Mobile: full width */
 @media(max-width:519px){
@@ -293,7 +292,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .btn-confirm{background:var(--primary);color:white}
 
 /* ── BOTTOM NAV ── */
-.bottom-nav{position:fixed;bottom:0;left:0;right:0;max-width:480px;margin:0 auto;background:var(--card);display:flex;border-top:1px solid #E8F5E9;z-index:100;padding-bottom:env(safe-area-inset-bottom)}
+.bottom-nav{position:fixed;bottom:0;left:0;right:0;max-width:480px;margin:0 auto;background:var(--card);display:flex;border-top:1px solid #E0E8FF;z-index:100;padding-bottom:env(safe-area-inset-bottom);left:50%;transform:translateX(-50%);width:100%}
 .nav-item{flex:1;padding:10px 0;display:flex;flex-direction:column;align-items:center;gap:2px;cursor:pointer;background:none;border:none;position:relative}
 .nav-item .ni{font-size:20px}
 .nav-item .nl{font-size:9px;font-weight:600;color:var(--muted)}
@@ -1828,6 +1827,7 @@ const TOPICS = [
       {q:'A regra geral das árvores frutíferas é...',a:'-EIRA (fem.) ou -EIRO (masc.) no final',hint:'Laranj-EIRA · Maci-EIRA · Banana-EIRA · Coqu-EIRO · Mamã-O → Mamo-EIRO',pron:'Laranjeira macieira bananeira coqueiro',wrong:['-EIRO sempre','-AL no final','-ZEIRO sempre']},
     ]
   },
+];
 // Story order
 const STORY_ORDER = ['fonetica','vogais','frutas','alfabeto','digrafos','eiro','servsestar','verbos','artigos','preposicoes','preposicoes2','locucoes','possessivos','interrogativos','comparativos','gramatica','morfologia','classespalavras','pronomes','adjetivos2','presente','passadoperfeito','passadoimperfeito','futuro','gerundio','gostar','verboster','tempo','terminacoes','coloquial','numeros','comida','expressoes','vocabulario','vocabavancado','empresa','direito','verboscotid','intensidade','saude','restaurante','animaismar','aeroporto','pagamentos','fonetica2','cores','transporte','pelopela','irregpassado','emocoes','calendario','numeroscardiais','generos','adjetivos','morrerde','comparativos2','verbofazer','corpo','contracoes','agem','expressoes2','mexerbater','internet','emailtrabalho','terminacoes2','supersticao','participio','condicional','animais','falsosamigos'];
 
@@ -1916,16 +1916,6 @@ function initOnboarding(){
     if(sw)sw.style.display='block';
     renderObPlayers();
   }
-}
-function renderObPlayers(){
-  const c=document.getElementById('obPlayersList');if(!c)return;c.innerHTML='';
-  allPlayers.forEach(p=>{
-    const prog=allProgress[p.id]||{};const xp=prog.xp||0;const lv=getLevelInfo(xp);
-    const row=document.createElement('div');row.className='ob-player-row';
-    row.innerHTML=`<div class="ob-player-av">${p.avatar}</div><div class="ob-player-info"><div class="ob-player-name">${p.name}</div><div class="ob-player-meta">${lv.icon} ${lv.name} · ${xp} XP</div></div><div class="ob-player-chevron">→</div>`;
-    row.onclick=()=>{CP=p;updateStreak();updateHome();showScreen('home');};
-    c.appendChild(row);
-  });
 }
 function showObPlayers(){
   document.getElementById('obNewSection').style.display='none';
