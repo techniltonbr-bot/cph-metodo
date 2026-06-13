@@ -10,14 +10,25 @@
 <style>
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
 :root{
-  --primary:#009C3B;--primary2:#FEDF00;--accent:#002776;
-  --bg:#F4FFF8;--card:#FFFFFF;--text:#1A2E1A;--muted:#5A7A5A;
-  --green:#2E9E6B;--red:#E53935;--orange:#F5A623;--teal:#00BCD4;
-  --radius:20px;--shadow:0 4px 20px rgba(0,156,59,.13);
+  --primary:#3DBE5E;--primary2:#FEDF00;--accent:#0D1B3E;
+  --bg:#F0F4FF;--card:#FFFFFF;--text:#0D1B3E;--muted:#5A6A8A;
+  --green:#3DBE5E;--red:#E53935;--orange:#F5A623;--teal:#00BCD4;
+  --radius:20px;--shadow:0 4px 20px rgba(13,27,62,.12);
   --xp:#9C27B0;
 }
 html{height:-webkit-fill-available}
-body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;min-height:-webkit-fill-available;display:flex;flex-direction:column;max-width:480px;margin:0 auto;overflow-x:hidden;overflow-y:auto;-webkit-overflow-scrolling:touch}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;min-height:-webkit-fill-available;display:flex;flex-direction:column;overflow-x:hidden;overflow-y:auto;-webkit-overflow-scrolling:touch}
+/* Desktop: center the app like a phone */
+@media(min-width:520px){
+  body{background:#0D1B3E;align-items:center;justify-content:flex-start}
+  body::before{content:'';position:fixed;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at 30% 20%,rgba(61,190,94,.12) 0%,transparent 60%),radial-gradient(ellipse at 70% 80%,rgba(13,27,62,.3) 0%,transparent 60%);z-index:0;pointer-events:none}
+  .screen,.bottom-nav,#onboarding,#levelUpOverlay,.modal-bg,.profile-menu{max-width:480px;width:100%;position:relative;z-index:1}
+  .bottom-nav{left:50%;transform:translateX(-50%)}
+}
+/* Mobile: full width */
+@media(max-width:519px){
+  body{max-width:100%;width:100%}
+}
 
 /* SCREENS */
 .screen{display:none;flex-direction:column;flex:1;padding:20px 20px 100px;animation:fadeIn .25s ease}
@@ -28,20 +39,21 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .topbar h2{font-size:19px;font-weight:700;flex:1}
 
 /* ── ONBOARDING ── */
-#onboarding{padding:0;background:linear-gradient(160deg,#005f1f 0%,#009c3b 40%,#002776 100%);justify-content:flex-start;align-items:stretch;min-height:100vh;overflow-y:auto}
+#onboarding{padding:0;background:linear-gradient(160deg,#0D1B3E 0%,#162A5E 50%,#0D1B3E 100%);justify-content:flex-start;align-items:stretch;min-height:100vh;overflow-y:auto;-webkit-overflow-scrolling:touch}
 .ob-hero{padding:52px 28px 44px;text-align:center;position:relative;overflow:hidden}
 .ob-hero::before{content:'';position:absolute;top:-40px;left:-40px;right:-40px;height:200px;background:rgba(254,223,0,.07);border-radius:50%;transform:scaleX(2)}
+.ob-hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:80px;background:linear-gradient(transparent,rgba(255,255,255,.15))}
 .ob-flag{font-size:64px;display:block;margin-bottom:14px;filter:drop-shadow(0 4px 16px rgba(0,0,0,.3))}
 .ob-title{font-size:32px;font-weight:900;color:white;letter-spacing:-0.5px;line-height:1.1;text-shadow:0 2px 8px rgba(0,0,0,.3)}
 .ob-title span{color:var(--primary2)}
 .ob-sub{font-size:14px;color:rgba(255,255,255,.75);margin-top:8px;font-weight:600}
-.ob-body{padding:0 24px 40px;display:flex;flex-direction:column;gap:0;background:white;border-radius:28px 28px 0 0;margin-top:-4px;min-height:50vh}
-.ob-section-label{font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;margin-top:24px}
+.ob-body{padding:0 24px 60px;display:flex;flex-direction:column;gap:0;background:rgba(255,255,255,.92);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-radius:28px 28px 0 0;margin-top:-4px;min-height:60vh;overflow-y:auto}
+.ob-section-label{font-size:11px;font-weight:700;color:var(--primary);text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;margin-top:24px;opacity:.8}
 .ob-section-label:first-child{margin-top:24px}
-.ob-input{width:100%;padding:16px 18px;border-radius:14px;border:2px solid #E8F5E9;background:#F4FFF8;color:var(--text);font-size:16px;font-weight:600;outline:none;-webkit-appearance:none;transition:border-color .2s}
+.ob-input{width:100%;padding:16px 18px;border-radius:14px;border:2px solid rgba(0,156,59,.2);background:rgba(244,255,248,.95);color:var(--text);font-size:16px;font-weight:600;outline:none;-webkit-appearance:none;transition:all .2s}
 .ob-input::placeholder{color:#aaa}
 .ob-input:focus{border-color:var(--primary);background:white}
-.ob-btn{width:100%;background:var(--primary);color:white;border:none;border-radius:14px;padding:17px;font-size:16px;font-weight:800;cursor:pointer;margin-top:22px;letter-spacing:-.2px;transition:opacity .2s;box-shadow:0 4px 16px rgba(0,156,59,.4)}
+.ob-btn{width:100%;background:var(--primary);color:white;border:none;border-radius:14px;padding:17px;font-size:16px;font-weight:800;cursor:pointer;margin-top:22px;letter-spacing:-.2px;transition:opacity .2s;box-shadow:0 4px 16px rgba(61,190,94,.4)}
 .ob-btn:active{opacity:.85}
 .ob-btn.secondary{background:#F4FFF8;color:var(--muted);border:2px solid #E8F5E9;margin-top:10px;font-size:14px;font-weight:600;box-shadow:none}
 .ob-divider{display:flex;align-items:center;gap:12px;margin:20px 0}
@@ -76,7 +88,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .xp-bar-fill{height:100%;border-radius:8px;background:linear-gradient(90deg,#9C27B0,#E040FB);transition:width .6s ease}
 
 /* Daily mission */
-.daily-card{background:linear-gradient(135deg,#002776,#0041A8);border-radius:16px;padding:14px 16px;margin-bottom:16px;display:flex;align-items:center;gap:14px}
+.daily-card{background:linear-gradient(135deg,#0D1B3E,#1A3070);border-radius:16px;padding:14px 16px;margin-bottom:16px;display:flex;align-items:center;gap:14px}
 .daily-icon{font-size:32px}
 .daily-text strong{color:white;font-size:14px;display:block}
 .daily-text span{color:rgba(255,255,255,.75);font-size:12px}
@@ -128,7 +140,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .snode-status{margin-left:auto;font-size:20px}
 
 /* ── LEARN ── */
-.learn-hero{text-align:center;margin-bottom:16px;background:linear-gradient(135deg,#009C3B,#006B2A);border-radius:16px;padding:18px;color:white}
+.learn-hero{text-align:center;margin-bottom:16px;background:linear-gradient(135deg,#3DBE5E,#25954A);border-radius:16px;padding:18px;color:white}
 .learn-hero .big{font-size:38px;line-height:1.1}
 .learn-hero .sub{font-size:13px;opacity:.85;margin-top:4px;font-weight:700}
 .lcard{background:var(--card);border-radius:var(--radius);padding:15px 17px;box-shadow:var(--shadow);margin-bottom:12px}
@@ -149,7 +161,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .pt-es{color:var(--muted)}
 .audio-btn{background:rgba(0,156,59,.1);border:none;border-radius:8px;padding:4px 9px;font-size:12px;cursor:pointer;color:var(--primary);font-weight:700;margin-left:6px;transition:all .2s}
 .audio-btn:active{background:var(--primary);color:white}
-.learn-done-btn{margin-top:4px;background:var(--primary);color:white;border:none;border-radius:var(--radius);padding:15px;font-size:15px;font-weight:700;cursor:pointer;width:100%;box-shadow:0 4px 16px rgba(0,156,59,.35)}
+.learn-done-btn{margin-top:4px;background:var(--primary);color:white;border:none;border-radius:var(--radius);padding:15px;font-size:15px;font-weight:700;cursor:pointer;width:100%;box-shadow:0 4px 16px rgba(61,190,94,.35)}
 
 /* ── FLASHCARDS ── */
 .prog-wrap{background:#E8F5E9;border-radius:10px;height:7px;margin-bottom:20px}
@@ -239,7 +251,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .level-xp-bar-fill{height:100%;border-radius:4px;background:var(--primary2);transition:width .6s}
 .streak-card{background:linear-gradient(135deg,#FF6B35,#E53935);border-radius:16px;padding:13px 17px;color:white;margin-bottom:14px;display:flex;align-items:center;gap:14px}
 .streak-big{font-size:36px;font-weight:900}
-.prog-player-bar{background:linear-gradient(135deg,#009C3B,#006B2A);border-radius:14px;padding:12px 15px;color:white;display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.prog-player-bar{background:linear-gradient(135deg,#3DBE5E,#25954A);border-radius:14px;padding:12px 15px;color:white;display:flex;align-items:center;gap:10px;margin-bottom:12px}
 .ppb-av{font-size:28px}
 .ppb-name{font-weight:800;font-size:14px}
 .ppb-xp{font-size:11px;opacity:.8}
@@ -301,7 +313,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .profile-menu-bg{position:fixed;top:0;left:0;right:0;bottom:0;z-index:400;display:none}
 .profile-menu-bg.open{display:block}
 .profile-menu{position:fixed;top:70px;right:16px;max-width:260px;width:90%;background:var(--card);border-radius:20px;box-shadow:0 8px 40px rgba(0,0,0,.18);z-index:401;overflow:hidden;animation:fadeIn .2s ease}
-.pm-header{background:linear-gradient(135deg,#009C3B,#006B2A);padding:16px 18px;display:flex;align-items:center;gap:12px}
+.pm-header{background:linear-gradient(135deg,#3DBE5E,#25954A);padding:16px 18px;display:flex;align-items:center;gap:12px}
 .pm-av{font-size:32px}
 .pm-name{color:white;font-weight:800;font-size:15px}
 .pm-xp{color:rgba(255,255,255,.75);font-size:11px}
@@ -348,16 +360,52 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 <!-- ══ ONBOARDING ══ -->
 <div id="onboarding" class="screen active">
   <div class="ob-hero">
-    <span class="ob-flag">🇧🇷</span>
-    <div class="ob-title">Método <span>CPH</span></div>
-    <div class="ob-sub">Clases Portugués · para Hispanohablantes</div>
+    <div style="display:flex;flex-direction:column;align-items:center;margin-bottom:16px">
+      <!-- LOGO: círculo navy + lápis tricolor apontando pra baixo + chapéu em cima -->
+      <div style="width:120px;height:120px;background:#0D1B3E;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 28px rgba(0,0,0,.5)">
+        <svg width="72" height="96" viewBox="0 0 72 96" xmlns="http://www.w3.org/2000/svg">
+          <!-- ── CHAPÉU (topo) ── -->
+          <!-- Aba plana do chapéu -->
+          <ellipse cx="36" cy="28" rx="32" ry="7" fill="#111"/>
+          <!-- Cúpula do chapéu -->
+          <rect x="22" y="8" width="28" height="22" rx="3" fill="#1a1a1a"/>
+          <!-- Cordão -->
+          <line x1="68" y1="28" x2="68" y2="42" stroke="#ccc" stroke-width="2"/>
+          <circle cx="68" cy="44" r="3" fill="#ccc"/>
+
+          <!-- ── LÁPIS (corpo) ── -->
+          <!-- Verde -->
+          <rect x="20" y="33" width="10" height="40" fill="#009C3B"/>
+          <!-- Amarelo -->
+          <rect x="30" y="33" width="12" height="40" fill="#FEDF00"/>
+          <!-- Azul -->
+          <rect x="42" y="33" width="10" height="40" fill="#002776"/>
+          <!-- Contorno corpo -->
+          <rect x="20" y="33" width="32" height="40" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="1"/>
+
+          <!-- ── PONTA (embaixo) ── -->
+          <!-- Madeira bege afilada -->
+          <polygon points="20,73 52,73 44,86 28,86" fill="#E8C87A"/>
+          <!-- Grafite -->
+          <polygon points="28,86 44,86 36,96" fill="#555"/>
+          <!-- Contorno ponta -->
+          <polygon points="20,73 52,73 44,86 28,86 36,96 44,86" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="0.8"/>
+        </svg>
+      </div>
+      <div style="margin-top:12px;line-height:1.15;text-align:center">
+        <div style="font-size:26px;font-weight:800;color:white;letter-spacing:-.3px">Clases</div>
+        <div style="font-size:26px;font-weight:900;color:#3DBE5E;letter-spacing:-.3px">Portugués</div>
+      </div>
+    </div>
+    <div class="ob-title">Aprende a <span>Falar</span></div>
+    <div class="ob-sub">Português Brasileiro · do Zero ao Fluente</div>
   </div>
   <div class="ob-body">
     <!-- NEW PROFILE -->
     <div id="obNewSection">
       <div class="ob-section-label">Como te llamas?</div>
       <input class="ob-input" id="obNameInput" type="text" placeholder="Tu nombre..." maxlength="20" autocomplete="off"/>
-      <button class="ob-btn" onclick="onboardNew()">Criar perfil e começar →</button>
+      <button class="ob-btn" onclick="try{onboardNew()}catch(e){alert('Erro: '+e.message)}">Criar perfil e começar →</button>
       <div id="obSwitchLink" style="display:none">
         <div class="ob-divider"><span></span><p>ou</p><span></span></div>
         <div class="ob-section-label">Perfis existentes</div>
@@ -402,13 +450,38 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 
 <!-- ══ HOME ══ -->
 <div id="home" class="screen">
-  <div style="text-align:center;margin-bottom:2px;padding-top:4px"><span style="font-size:11px;font-weight:900;color:var(--primary);letter-spacing:2px;text-transform:uppercase">MÉTODO CPH™</span></div>
+  <div style="text-align:center;margin-bottom:10px;padding-top:4px;display:flex;align-items:center;justify-content:center;gap:8px">
+    <div style="width:30px;height:30px;background:#0D1B3E;border-radius:50%;border:1.5px solid #3DBE5E;display:flex;align-items:center;justify-content:center;overflow:hidden">
+      <svg width="20" height="27" viewBox="0 0 72 96" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="36" cy="28" rx="32" ry="7" fill="#111"/>
+        <rect x="22" y="8" width="28" height="22" rx="3" fill="#1a1a1a"/>
+        <rect x="20" y="33" width="10" height="40" fill="#009C3B"/>
+        <rect x="30" y="33" width="12" height="40" fill="#FEDF00"/>
+        <rect x="42" y="33" width="10" height="40" fill="#002776"/>
+        <polygon points="20,73 52,73 44,86 28,86" fill="#E8C87A"/>
+        <polygon points="28,86 44,86 36,96" fill="#555"/>
+      </svg>
+    </div>
+    <span style="font-size:14px;font-weight:900;color:#0D1B3E;letter-spacing:.3px">Clases <span style="color:#3DBE5E">Portugués</span></span>
+  </div>
   <div class="home-hdr">
     <div class="home-names">
       <div class="greeting" id="greeting">Bom dia!</div>
       <div class="name" id="homeName">Estudante</div>
     </div>
-    <button class="home-av-btn" id="homeAv" onclick="openProfileMenu()">🇧🇷</button>
+    <button class="home-av-btn" id="homeAv" onclick="openProfileMenu()" style="width:42px;height:42px;background:#0D1B3E;border-radius:50%;border:2px solid #3DBE5E;display:flex;align-items:center;justify-content:center;padding:0;overflow:hidden;flex-shrink:0">
+      <svg width="26" height="34" viewBox="0 0 72 96" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="36" cy="28" rx="32" ry="7" fill="#111"/>
+        <rect x="22" y="8" width="28" height="22" rx="3" fill="#1a1a1a"/>
+        <line x1="68" y1="28" x2="68" y2="42" stroke="#ccc" stroke-width="2"/>
+        <circle cx="68" cy="44" r="3" fill="#ccc"/>
+        <rect x="20" y="33" width="10" height="40" fill="#009C3B"/>
+        <rect x="30" y="33" width="12" height="40" fill="#FEDF00"/>
+        <rect x="42" y="33" width="10" height="40" fill="#002776"/>
+        <polygon points="20,73 52,73 44,86 28,86" fill="#E8C87A"/>
+        <polygon points="28,86 44,86 36,96" fill="#555"/>
+      </svg>
+    </button>
     <div class="streak-badge" id="streakBadge">
       <div class="fire">🔥</div>
       <div><div class="sval" id="streakVal">0</div><div class="slbl">días</div></div>
