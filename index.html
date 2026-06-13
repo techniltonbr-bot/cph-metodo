@@ -292,7 +292,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .btn-confirm{background:var(--primary);color:white}
 
 /* ── BOTTOM NAV ── */
-.bottom-nav{position:fixed;bottom:0;left:0;right:0;max-width:480px;margin:0 auto;background:var(--card);display:flex;border-top:1px solid #E0E8FF;z-index:100;padding-bottom:env(safe-area-inset-bottom);left:50%;transform:translateX(-50%);width:100%}
+.bottom-nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);max-width:480px;width:100%;background:var(--card);display:flex;border-top:1px solid #E0E8FF;z-index:100;padding-bottom:env(safe-area-inset-bottom)}
 .nav-item{flex:1;padding:10px 0;display:flex;flex-direction:column;align-items:center;gap:2px;cursor:pointer;background:none;border:none;position:relative}
 .nav-item .ni{font-size:20px}
 .nav-item .nl{font-size:9px;font-weight:600;color:var(--muted)}
@@ -515,7 +515,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
     <a href="https://www.dicio.com.br" target="_blank" style="display:flex;align-items:center;gap:12px;padding:11px 0;border-bottom:1px solid #F0F0F0;text-decoration:none"><div style="font-size:22px">📝</div><div><div style="font-size:13px;font-weight:700;color:var(--text)">dicio.com.br</div><div style="font-size:11px;color:var(--muted)">Dicionário português oficial</div></div><div style="margin-left:auto;color:var(--primary);font-size:16px">→</div></a>
     <a href="https://www.dicionarioinformal.com.br" target="_blank" style="display:flex;align-items:center;gap:12px;padding:11px 0;border-bottom:1px solid #F0F0F0;text-decoration:none"><div style="font-size:22px">🗣️</div><div><div style="font-size:13px;font-weight:700;color:var(--text)">dicionarioinformal.com.br</div><div style="font-size:11px;color:var(--muted)">Gírias e coloquial brasileiro</div></div><div style="margin-left:auto;color:var(--primary);font-size:16px">→</div></a>
     <a href="https://www.dicionariodenomesproprios.com.br" target="_blank" style="display:flex;align-items:center;gap:12px;padding:11px 0;border-bottom:1px solid #F0F0F0;text-decoration:none"><div style="font-size:22px">🔤</div><div><div style="font-size:13px;font-weight:700;color:var(--text)">Dicionário de Nomes Próprios</div><div style="font-size:11px;color:var(--muted)">Significado do seu nome em português</div></div><div style="margin-left:auto;color:var(--primary);font-size:16px">→</div></a>
-    <a href="https://www.vittude.com/blog/teste-disc/" target="_blank" style="display:flex;align-items:center;gap:12px;padding:11px 0;border-bottom:1px solid #F0F0F0;text-decoration:none"><div style="font-size:22px">🧠</div><div><div style="font-size:13px;font-weight:700;color:var(--text)">Teste DISC — Perfil comportamental</div><div style="font-size:11px;color:var(--muted)">Dominância, Influência, Firmeza, Consciência</div></div><div style="margin-left:auto;color:var(--primary);font-size:16px">→</div></a>
+    <a href="https://www.mrcoach.com.br/teste-perfil-comportamental-disc.php" target="_blank" style="display:flex;align-items:center;gap:12px;padding:11px 0;border-bottom:1px solid #F0F0F0;text-decoration:none"><div style="font-size:22px">🧠</div><div><div style="font-size:13px;font-weight:700;color:var(--text)">Teste DISC — Perfil comportamental</div><div style="font-size:11px;color:var(--muted)">Dominância, Influência, Firmeza, Consciência</div></div><div style="margin-left:auto;color:var(--primary);font-size:16px">→</div></a>
   </div>
   <!-- FILMES -->
   <div style="margin-top:16px;background:var(--card);border-radius:var(--radius);padding:16px;box-shadow:var(--shadow)">
@@ -793,7 +793,7 @@ const TOPICS = [
   {id:'futuro',icon:'🚀',title:'Futuro em Português',desc:'Vou + infinitivo e futuro simples',color:'#FF9800',xpReward:30,
     cards:[
       {q:'O futuro imediato em português usa...',a:'VOU + Infinitivo',hint:'"Vou estudar amanhã" = Voy a estudiar mañana.',pron:'Vou estudar',wrong:['IREI + infinitivo','ESTAREI + gerúndio','FUI + infinitivo']},
-      {q:'Como se diz "Vou viajar"?',a:'Vou viajar',hint:'Pronuncia: (vou viazhár)',pron:'Vou viajar para o Brasil',wrong:['Vou viajando','Vou viajei','Irei viajar']},
+      {q:'Como se diz "Vou viajar"?',a:'Vou viajar',hint:'Pronuncia: (vou viazhár)',pron:'Vou viajar pro Brasil',wrong:['Vou viajando','Vou viajei','Irei viajar']},
       {q:'"Ella va a trabajar" em português é...',a:'Ela vai trabalhar',hint:'3ª pessoa: VAI + infinitivo.',pron:'Ela vai trabalhar amanhã',wrong:['Ela vou trabalhar','Ela vão trabalhar','Ela vai trabalhando']},
       {q:'Futuro simples formal termina em...',a:'-ei / -ás / -á',hint:'Falarei · Comerá · Partiremos. Mais formal/escrito.',pron:'Falarei amanhã',wrong:['-ei / -ou / -ia','-ava / -ia','-o / -e']},
       {q:'Como se diz "Quando llegue" em português?',a:'Quando chegar',hint:'QUANDO + Futuro do Subjuntivo. Estrutura única!',pron:'Quando chegar ao Brasil',wrong:['Quando chegará','Quando chegarei','Quando chegou']},
@@ -805,13 +805,13 @@ const TOPICS = [
   // 5
   {id:'gerundio',icon:'🌀',title:'Gerúndio e Progressivo',desc:'-NDO em português',color:'#9C27B0',xpReward:25,
     cards:[
-      {q:'O gerúndio em português termina em...',a:'-ANDO / -ENDO / -INDO',hint:'FALAR → falANDO · COMER → comENDO · PARTIR → partINDO',pron:'Estou falando comendo',wrong:['-ANDO somente','-IENDO','-ADO']},
+      {q:'O gerúndio em português termina em...',a:'-ANDO / -ENDO / -INDO',hint:'FALAR → falANDO · COMER → comENDO · PARTIR → partINDO',pron:'Tô falando comendo',wrong:['-ANDO somente','-IENDO','-ADO']},
       {q:'"Estou estudando" equivale a...',a:'Estoy estudiando',hint:'ESTAR + Gerúndio = ação em curso agora.',pron:'Estou estudando',wrong:['Estudiei','Vou estudar','Estudava']},
-      {q:'Como se diz "Estou comendo"?',a:'Estou comendo',hint:'COMER → comENDO. Pronuncia: (eshtou comendú)',pron:'Estou comendo agora',wrong:['Estou comer','Estou comido','Estou comiendo']},
+      {q:'Como se diz "Tô comendo"?',a:'Tô comendo',hint:'COMER → comENDO. Pronuncia: (eshtou comendú)',pron:'Tô comendo agora',wrong:['Estou comer','Estou comido','Estou comiendo']},
       {q:'"Continuando" é gerúndio de qual verbo?',a:'CONTINUAR',hint:'Continuando... Muito usado para introduzir ideias.',pron:'Continuando o assunto',wrong:['CONTINUER','CONTINUA','CONTINUIR']},
-      {q:'Como se diz "Estoy yendo a trabajar"?',a:'Estou indo trabalhar',hint:'IR → Indo. Pronuncia: (indú trabalhár)',pron:'Estou indo trabalhar',wrong:['Estou vendo trabalhar','Estou sendo trabalhar','Estou fazendo trabalhar']},
+      {q:'Como se diz "Estoy yendo a trabajar"?',a:'Estou indo trabalhar',hint:'IR → Indo. Pronuncia: (indú trabalhár)',pron:'Estou indo trabalhar',wrong:['Tô vendo trabalhar','Estou sendo trabalhar','Estou fazendo trabalhar']},
       {q:'"Sendo" é gerúndio de qual verbo?',a:'SER',hint:'"Estou sendo honesto" = Estoy siendo honesto.',pron:'Estou sendo honesto',wrong:['ESTAR','FICAR','TER']},
-      {q:'Diferença: "Falando" vs "Falado"',a:'Falando = gerúndio · Falado = particípio',hint:'Estou falando = estoy hablando. Tinha falado = había hablado.',pron:'Estou falando tinha falado',wrong:['São a mesma coisa','Falando = passado','Falado = gerúndio']},
+      {q:'Diferença: "Falando" vs "Falado"',a:'Falando = gerúndio · Falado = particípio',hint:'Tô falando = estoy hablando. Tinha falado = había hablado.',pron:'Tô falando tinha falado',wrong:['São a mesma coisa','Falando = passado','Falado = gerúndio']},
       {q:'Como soa o LH em "Trabalhando"?',a:'Como LH especial — semelhante a Ñ',hint:'Trabalho → trabalñu. Trabalhando → (trabalñandú)',pron:'Trabalhando',wrong:['Como L normal','Como L+H separados','Como W']},
     ]
   },
@@ -870,7 +870,7 @@ const TOPICS = [
   // 10
   {id:'condicional',icon:'💭',title:'Condicional',desc:'Se... + Subjuntivo',color:'#00BCD4',xpReward:35,
     cards:[
-      {q:'A fórmula do condicional em português é...',a:'SE + Subjuntivo Imperfeito + Condicional',hint:'Se eu GANHASSE na loteria, eu VIAJARIA para o Brasil.',pron:'Se eu ganhasse eu viajaria',wrong:['SE + Infinitivo + Futuro','SE + Imperfeito + Imperfeito','SE + Presente + Futuro']},
+      {q:'A fórmula do condicional em português é...',a:'SE + Subjuntivo Imperfeito + Condicional',hint:'Se eu GANHASSE na loteria, eu VIAJARIA pro Brasil.',pron:'Se eu ganhasse eu viajaria',wrong:['SE + Infinitivo + Futuro','SE + Imperfeito + Imperfeito','SE + Presente + Futuro']},
       {q:'Subjuntivo imperfeito de FALAR',a:'falasse',hint:'Se eu FALASSE mais devagar... Pronuncia: (falasi)',pron:'falasse',wrong:['falei','falava','falarei']},
       {q:'Subjuntivo imperfeito de TER',a:'tivesse',hint:'Se eu TIVESSE mais dinheiro... Pronuncia: (tivési)',pron:'tivesse',wrong:['tinha','teria','teve']},
       {q:'Subjuntivo imperfeito de FAZER',a:'fizesse',hint:'Se eu FIZESSE isso... Pronuncia: (fizési)',pron:'fizesse',wrong:['fiz','fazia','farei']},
@@ -938,7 +938,7 @@ const TOPICS = [
   {id:'futuro',icon:'🚀',title:'Futuro em Português',desc:'Vou + infinitivo e futuro simples',color:'#FF9800',xpReward:30,
     cards:[
       {q:'O futuro imediato em português é...',a:'VOU + Infinitivo',hint:'"Vou estudar amanhã" = Voy a estudiar mañana. Muitíssimo usado!',pron:'Vou estudar → (vou estudár)',wrong:['Irei + infinitivo','Estarei + gerúndio','Fui + infinitivo']},
-      {q:'Como se diz "Vou viajar" em português?',a:'Vou viajar (pronuncia: vou viazhár)',hint:'VOU VIAJAR = Voy a viajar. O J do -ajar fica suave, como em espanhol.',pron:'Vou viajar para o Brasil',wrong:['Vou viajando','Vou viajei','Irei viajar']},
+      {q:'Como se diz "Vou viajar" em português?',a:'Vou viajar (pronuncia: vou viazhár)',hint:'VOU VIAJAR = Voy a viajar. O J do -ajar fica suave, como em espanhol.',pron:'Vou viajar pro Brasil',wrong:['Vou viajando','Vou viajei','Irei viajar']},
       {q:'"Ela vai trabalhar" em português é...',a:'Ela vai trabalhar',hint:'3ª pessoa: VAI + infinitivo. "Ela vai trabalhar" = Ella va a trabajar.',pron:'Ela vai trabalhar amanhã',wrong:['Ela vou trabalhar','Ela vão trabalhar','Ela vai trabalhando']},
       {q:'Futuro simples formal: "-ei / -ás / -á"',a:'Falarei / Comerá / Partiremos',hint:'Futuro simples = mais formal/escrito. Oral prefere: vou + inf.',pron:'Falarei amanhã → (falareiu)',wrong:['Falei / Comeu / Partiu','Falava / Comia / Partia','Falo / Come / Parte']},
       {q:'Como se diz "Quando chegar" (futuro)?',a:'Quando chegar (Subjuntivo Futuro)',hint:'QUANDO + Futuro do Subjuntivo = quando chegares/chegar. Estrutura única!',pron:'Quando chegar ao Brasil → (chegar = Shegár)',wrong:['Quando chegará','Quando chegarei','Quando chegou']},
@@ -950,13 +950,13 @@ const TOPICS = [
   // 5
   {id:'gerundio',icon:'🌀',title:'Gerúndio e Progressivo',desc:'-NDO em português',color:'#9C27B0',xpReward:25,
     cards:[
-      {q:'O gerúndio em português termina em...',a:'-ANDO / -ENDO / -INDO',hint:'FALAR → falANDO · COMER → comENDO · PARTIR → partINDO',pron:'Estou falando → (eshtou falandú)',wrong:['-ANDO somente','-IENDO','-ADO']},
+      {q:'O gerúndio em português termina em...',a:'-ANDO / -ENDO / -INDO',hint:'FALAR → falANDO · COMER → comENDO · PARTIR → partINDO',pron:'Tô falando → (eshtou falandú)',wrong:['-ANDO somente','-IENDO','-ADO']},
       {q:'"Estou estudando" equivale a...',a:'Estoy estudiando (ação em progresso)',hint:'ESTAR + Gerúndio = ação em curso agora. Mesmo uso que espanhol!',pron:'Estou estudando → (eshtou estudandú)',wrong:['Estudiei','Vou estudar','Estudava']},
-      {q:'Como se diz "Estou comendo" em português?',a:'Estou comendo (pronuncia: eshtou comendú)',hint:'COMER → comENDO. O D antes do U final → U. comendU',pron:'Estou comendo agora',wrong:['Estou comer','Estou comido','Estou comIENDO']},
+      {q:'Como se diz "Tô comendo" em português?',a:'Tô comendo (pronuncia: eshtou comendú)',hint:'COMER → comENDO. O D antes do U final → U. comendU',pron:'Tô comendo agora',wrong:['Estou comer','Estou comido','Estou comIENDO']},
       {q:'"Continuando" em português é o gerúndio de...',a:'CONTINUAR → continuando',hint:'Continuando... (continuandú). Muito usado para introduzir ideias.',pron:'Continuando o assunto → (continuandú)',wrong:['CONTINUAR → continuado','CONTINUAR → continuei','CONTINUAR → continua']},
       {q:'Como se diz "Indo trabalhar" em português?',a:'Indo trabalhar (pronuncia: indú trabalhár)',hint:'IR → Indo. "Estou indo" = estoy yendo / voy yendo (muito coloquial)',pron:'Estou indo trabalhar',wrong:['Vendo trabalhar','Sendo trabalhar','Fazendo trabalhar']},
       {q:'"Sendo" é gerúndio de qual verbo?',a:'SER → sendo',hint:'"Estou sendo honesto" = Estoy siendo honesto. Mesmo uso!',pron:'Estou sendo honesto',wrong:['ESTAR → sendo','FICAR → sendo','TER → sendo']},
-      {q:'Diferença: "Falando" vs "Falado"',a:'Falando = gerúndio · Falado = particípio',hint:'Estou falando = estoy hablando. Tinha falado = había hablado.',pron:'Estou falando vs tinha falado',wrong:['São a mesma coisa','Falando = passado · Falado = presente','Falado = gerúndio']},
+      {q:'Diferença: "Falando" vs "Falado"',a:'Falando = gerúndio · Falado = particípio',hint:'Tô falando = estoy hablando. Tinha falado = había hablado.',pron:'Tô falando vs tinha falado',wrong:['São a mesma coisa','Falando = passado · Falado = presente','Falado = gerúndio']},
       {q:'"Trabalhando" soa como...',a:'(trabalhándú) — L + vogal = LH = ÑH',hint:'O LH soa como LH especial. Trabalhando → trabalh = (trabalñ)',pron:'Trabalhando → (trabalñandú)',wrong:['(trabajando)','(trabalandó)','(travalhândo)']},
     ]
   },
@@ -1015,7 +1015,7 @@ const TOPICS = [
   // 10
   {id:'condicional',icon:'💭',title:'Condicional',desc:'Se... + Subjuntivo',color:'#00BCD4',xpReward:35,
     cards:[
-      {q:'A fórmula do condicional em português é...',a:'SE + Subjuntivo Imperfeito + , + Condicional',hint:'Se eu GANHASSE na loteria, eu VIAJARIA para o Brasil.',pron:'Se eu tivesse → (si eu tivêsi)',wrong:['Si + Infinitivo','SI + Imperfeito','SE + Indicativo']},
+      {q:'A fórmula do condicional em português é...',a:'SE + Subjuntivo Imperfeito + , + Condicional',hint:'Se eu GANHASSE na loteria, eu VIAJARIA pro Brasil.',pron:'Se eu tivesse → (si eu tivêsi)',wrong:['Si + Infinitivo','SI + Imperfeito','SE + Indicativo']},
       {q:'Subjuntivo imperfeito de FALAR',a:'falasse (eu/ele)',hint:'Se eu FALASSE mais devagar... · Se ele FALASSE português...',pron:'falasse → (falasi)',wrong:['falei','falava','falarei']},
       {q:'Subjuntivo imperfeito de TER',a:'tivesse (eu/ele)',hint:'Se eu TIVESSE mais dinheiro... · Se ela TIVESSE tempo...',pron:'tivesse → (tivési)',wrong:['tinha','teria','teve']},
       {q:'Subjuntivo imperfeito de FAZER',a:'fizesse (eu/ele)',hint:'Se eu FIZESSE isso... · O que você FARIA se FIZESSE isso?',pron:'fizesse → (fizési)',wrong:['fiz','fazia','farei']},
@@ -1301,7 +1301,7 @@ const TOPICS = [
   {id:'transporte',icon:'🚌',title:'Meios de Transporte',desc:'De ônibus, de carro, a pé...',color:'#009C3B',xpReward:25,
     cards:[
       {q:'"Ir de ônibus" em português é...',a:'Ir de ônibus (de ônibus)',hint:'"Eu vou de ônibus para a cidade" = Voy en bus a la ciudad. DE = en.',pron:'Eu vou de ônibus',wrong:['Ir en ônibus','Ir no ônibus','Ir com ônibus']},
-      {q:'"Ir a pie" em português é...',a:'Ir a pé',hint:'"Nós vamos a pé para a escola" = Vamos a pie a la escuela. A pé = a pie.',pron:'Vamos a pé',wrong:['Ir de pé','Ir no pé','A pie']},
+      {q:'"Ir a pie" em português é...',a:'Ir a pé',hint:'"Nós vamos a pé pra escola" = Vamos a pie a la escuela. A pé = a pie.',pron:'Vamos a pé',wrong:['Ir de pé','Ir no pé','A pie']},
       {q:'"Ir en carro" em português é...',a:'Ir de carro',hint:'"Nós vamos de carro para a fábrica". DE = en para transporte.',pron:'Vamos de carro',wrong:['Ir en carro','Ir no carro','Ir com carro']},
       {q:'"Ir en avión" em português é...',a:'Ir de avião (de aviáun)',hint:'"Eu vou de avião para o Canadá". Avião = aviáun (ão → áun).',pron:'Vou de avião',wrong:['Ir en avião','Ir no avião','De avion']},
       {q:'"Metrô" em português se pronuncia...',a:'Metrô (metjô)',hint:'Metrô = metro. O acento indica O aberto/fechado. Pronuncia: (metjô)',pron:'Metrô',wrong:['Metro (igual)','Metru','Metroo']},
@@ -2107,7 +2107,7 @@ function startLearn(tid){
 <tr><td>ELLOS</td><td class="pt-pron">ELES</td></tr>
 <tr><td>ELLAS</td><td class="pt-pron">ELAS</td></tr>
 </table>
-<p style="margin-top:8px;font-size:11px;color:var(--red);font-weight:700">⚠️ NUNCA usar TÚ nem VOSOTROS — português do Brasil</p></div>`;
+<p style="margin-top:8px;font-size:11px;color:var(--red);font-weight:700">💡 Brasil: Eu · Você · A gente · Nós · Vocês · Eles/Elas</p></div>`;
     h+=`<div class="lcard"><h4>🔵 ESTAR — com formas coloquiais brasileiras</h4><table class="pron-table">
 <tr><th>Espanhol</th><th>Português</th><th>Coloquial 🇧🇷</th></tr>
 <tr><td>YO</td><td class="pt-pron">ESTOU</td><td style="color:var(--orange);font-weight:800">TÔ</td></tr>
@@ -2147,7 +2147,7 @@ function startLearn(tid){
     conjugations.forEach(([v,...cs])=>{h+=`<tr><td class="pt-word">${v}</td>${cs.map(c=>`<td class="pt-pron">${c}</td>`).join('')}</tr>`;});
     h+=`</table></div>`;
     h+=`<div class="lcard"><h4>💬 Frases com Áudio</h4>`;
-    [['Eu falo português.','Eu falo português'],['A gente come muito bem.','A gente come muito bem'],['Ela vai para o Brasil.','Ela vai para o Brasil'],['Nós temos saudade.','Nós temos saudade'],['Tô indo ao trabalho.','Tô indo ao trabalho'],['Ela tá aprendendo.','Ela tá aprendendo']].forEach(([txt,sp])=>{
+    [['Eu falo português.','Eu falo português'],['A gente come muito bem.','A gente come muito bem'],['Ela vai pro Brasil.','Ela vai pro Brasil'],['Nós temos saudade.','Nós temos saudade'],['Tô indo ao trabalho.','Tô indo ao trabalho'],['Ela tá aprendendo.','Ela tá aprendendo']].forEach(([txt,sp])=>{
       h+=`<p style="margin-bottom:8px">${txt} <button class="audio-btn" onclick="speak('${sp}')">🔊</button></p>`;
     });
     h+=`</div>`;
@@ -2155,7 +2155,7 @@ function startLearn(tid){
   else if(tid==='futuro'){
     h+=`<div class="lcard"><h4>🚀 Futuro Imediato — VOU + Infinitivo</h4><p style="margin-bottom:10px">É o futuro mais usado no Brasil. Igual a "voy a + infinitivo" no espanhol.</p><table class="pron-table"><tr><th>Pronome</th><th>Futuro imediato</th></tr><tr><td>Eu</td><td class="pt-pron">Vou estudar</td></tr><tr><td>Você/Ele</td><td class="pt-pron">Vai viajar</td></tr><tr><td>A gente</td><td class="pt-pron">Vai trabalhar</td></tr><tr><td>Eles</td><td class="pt-pron">Vão chegar</td></tr></table></div>`;
     h+=`<div class="lcard"><h4>📋 Futuro Simples — Formal</h4><table class="pron-table"><tr><th>Terminação</th><th>FALAR</th><th>COMER</th></tr><tr><td>-ei (eu)</td><td class="pt-pron">falarei</td><td class="pt-pron">comerei</td></tr><tr><td>-ás (você)</td><td class="pt-pron">falará</td><td class="pt-pron">comerá</td></tr><tr><td>-á (ele)</td><td class="pt-pron">falará</td><td class="pt-pron">comerá</td></tr></table></div>`;
-    h+=`<div class="lcard"><h4>💬 Futuro do Subjuntivo — Quando + Fizer</h4><p>Quando <b>chegar</b> ao Brasil, vou ligar. <button class="audio-btn" onclick="speak('Quando chegar ao Brasil, vou ligar')">🔊</button></p><p style="margin-top:6px">Se <b>puder</b>, venha! <button class="audio-btn" onclick="speak('Se puder, venha')">🔊</button></p></div>`;
+    h+=``;
   }
   else if(tid==='gerundio'){
     h+=`<div class="lcard"><h4>🌀 Formação do Gerúndio — NDO = 100%</h4><table class="pron-table">
@@ -2168,7 +2168,7 @@ function startLearn(tid){
 <tr><th>Infinitivo</th><th>Gerúndio</th><th>Exemplo</th></tr>
 <tr><td>Estudar</td><td class="pt-pron">Estudando</td><td>Estou estudando</td></tr>
 <tr><td>Falar</td><td class="pt-pron">Falando</td><td>Ela tá falando</td></tr>
-<tr><td>Ver</td><td class="pt-pron">Vendo</td><td>Estou vendo TV</td></tr>
+<tr><td>Ver</td><td class="pt-pron">Vendo</td><td>Tô vendo TV</td></tr>
 <tr><td>Ir</td><td class="pt-pron">Indo</td><td>A gente tá indo</td></tr>
 <tr><td>Aprender</td><td class="pt-pron">Aprendendo</td><td>Você tá aprendendo</td></tr>
 <tr><td>Escrever</td><td class="pt-pron">Escrevendo</td><td>Ela tá escrevendo</td></tr>
@@ -2580,7 +2580,7 @@ function startLearn(tid){
 <tr><td>A pie</td><td class="pt-pron">a pé</td><td>Vamos a pé</td></tr>
 </table></div>`;
     h+=`<div class="lcard"><h4>💬 Frases com áudio</h4>`;
-    [['Eu vou de ônibus para a cidade.','Eu vou de ônibus para a cidade'],['Nós vamos de carro para a fábrica.','Nós vamos de carro para a fábrica'],['Paulo e Luisa vão de avião para o Rio.','Paulo e Luisa vão de avião para o Rio'],['Nós vamos a pé para a escola.','Nós vamos a pé para a escola']].forEach(([txt,sp])=>{h+=`<p style="margin-bottom:8px">${txt} <button class="audio-btn" onclick="speak('${sp}')">🔊</button></p>`;});
+    [['Eu vou de ônibus para a cidade.','Eu vou de ônibus para a cidade'],['Nós vamos de carro para a fábrica.','Nós vamos de carro para a fábrica'],['Paulo e Luisa vão de avião para o Rio.','Paulo e Luisa vão de avião para o Rio'],['Nós vamos a pé pra escola.','Nós vamos a pé pra escola']].forEach(([txt,sp])=>{h+=`<p style="margin-bottom:8px">${txt} <button class="audio-btn" onclick="speak('${sp}')">🔊</button></p>`;});
     h+=`</div>`;
   }
   else if(tid==='pelopela'){
@@ -3378,7 +3378,7 @@ function startLearn(tid){
     h+=`</div>`;
   }
   else if(tid==='condicional'){
-    h+=`<div class="lcard"><h4>💭 A Fórmula</h4><div style="background:#E8FFF0;border-radius:10px;padding:12px;font-size:15px;font-weight:800;text-align:center;color:var(--primary)">SE + [Imperfeito Subj.] , [Condicional]</div><p style="margin-top:8px;font-size:13px">Se eu <b>ganhasse</b> na loteria, eu <b>viajaria</b> para o Brasil. <button class="audio-btn" onclick="speak('Se eu ganhasse na loteria, eu viajaria para o Brasil')">🔊</button></p></div>`;
+    h+=`<div class="lcard"><h4>💭 A Fórmula</h4><div style="background:#E8FFF0;border-radius:10px;padding:12px;font-size:15px;font-weight:800;text-align:center;color:var(--primary)">SE + [Imperfeito Subj.] , [Condicional]</div><p style="margin-top:8px;font-size:13px">Se eu <b>ganhasse</b> na loteria, eu <b>viajaria</b> pro Brasil. <button class="audio-btn" onclick="speak('Se eu ganhasse na loteria, eu viajaria pro Brasil')">🔊</button></p></div>`;
     const verbs=[['falar','falasse'],['ter','tivesse'],['fazer','fizesse'],['poder','pudesse'],['ser/ir','fosse'],['vir','viesse']];
     h+=`<div class="lcard"><h4>📋 Subjuntivo Imperfeito</h4><table class="pron-table"><tr><th>Verbo</th><th>Eu/Ele</th></tr>${verbs.map(([v,s])=>`<tr><td class="pt-word">${v}</td><td class="pt-pron">${s}</td></tr>`).join('')}</table></div>`;
   }
@@ -4492,7 +4492,7 @@ function renderConj(){
   let h=`<div style="background:${v.color}20;border-radius:14px;padding:13px 15px;margin-bottom:14px;border-left:4px solid ${v.color}">
     <div style="font-size:18px;font-weight:900;color:${v.color}">${v.inf}</div>
     <div style="font-size:12px;color:var(--muted)">${v.type} · ${v.es} · Gerúndio: ${v.ger} · Particípio: ${v.part}</div>
-    <p style="font-size:11px;color:var(--red);font-weight:700;margin-top:6px">⚠️ Nunca usar TU nem VÓS — Português do Brasil</p>
+    <p style="font-size:11px;color:var(--red);font-weight:700;margin-top:6px">💡 Brasil: Eu · Você · A gente · Nós · Vocês · Eles/Elas</p>
   </div>`;
   // INDICATIVO
   h+=`<div style="font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px">MODO INDICATIVO</div>`;
